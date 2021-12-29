@@ -15,3 +15,15 @@ class TodoViewset(viewsets.ModelViewSet):
         todos = Todo.objects.all()
         serializer = TodoListSerializer(todos,many=True)
         return Response (serializer.data)
+
+
+class TodoViewset(viewsets.ModelViewSet):
+    queryset = Todo.objects.all()
+    serializer_class = TodoSerializer
+
+
+
+    def list(self, request, *args, **kwargs):
+        todos = Todo.objects.all()
+        serializer = TodoListSerializer(todos,many=True)
+        return Response (serializer.data)
